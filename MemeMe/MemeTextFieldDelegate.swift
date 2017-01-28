@@ -12,24 +12,31 @@ import UIKit
 class MemeTextFieldDelegate : NSObject, UITextFieldDelegate{
  
     var view: UIView!
+    var editingTextField: UITextField!
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        editingTextField = textField
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
        return textField.resignFirstResponder()
     }
     
-    func shiftScreenUp(_ notification:Notification){
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+    func shiftScreenUp(_ notification:Notification) {
+        //to make sure that the it is only invoked when the bottom text is being edited
+        if editingTextField.tag == 1 {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func shiftScreenDown(_ notification:Notification){
-        self.view.frame.origin.y = 0
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {

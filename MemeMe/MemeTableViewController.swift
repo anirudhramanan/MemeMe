@@ -10,7 +10,7 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
     
-    var sentMemes = SentMemes.allSentMemes()
+    var sentMemes: [Meme] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +18,16 @@ class MemeTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sentMemes.count
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadTableView()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,8 +47,7 @@ class MemeTableViewController: UITableViewController {
     
     @IBAction func unwindToList(sender: UIStoryboardSegue) {
         if sender.source is MemeViewController {
-            sentMemes = SentMemes.allSentMemes()
-            tableView.reloadData()
+            reloadTableView()
         } else{
             fatalError("Unidentified segue")
         }
@@ -57,5 +59,10 @@ class MemeTableViewController: UITableViewController {
             removeAndUpdateMemes(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func reloadTableView() {
+        sentMemes = SentMemes.allSentMemes()
+        tableView.reloadData()
     }
 }

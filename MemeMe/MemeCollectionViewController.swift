@@ -10,7 +10,7 @@ import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
     
-    var sentMemes = [Meme]()
+    var sentMemes: [Meme] = []
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -26,25 +26,21 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        sentMemes = SentMemes.allSentMemes()
-        collectionView?.reloadData()
+       reloadCollectionView()
     }
     
     @IBAction func unwindToList(sender: UIStoryboardSegue) {
         if sender.source is MemeViewController {
-            sentMemes = SentMemes.allSentMemes()
-            collectionView?.reloadData()
+            reloadCollectionView()
         } else{
             fatalError("Unidentified segue")
         }
     }
     
     // MARK: UICollectionViewDataSource
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sentMemes.count
@@ -52,9 +48,13 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
-        
         let meme = sentMemes[(indexPath as NSIndexPath).row]
         cell.memeImage.image = meme.memeImage
         return cell
+    }
+    
+    func reloadCollectionView() {
+        sentMemes = SentMemes.allSentMemes()
+        collectionView?.reloadData()
     }
 }
