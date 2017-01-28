@@ -184,7 +184,7 @@
         <scene sceneID="FPr-Y1-RBw">
             <objects>
                 <collectionViewController id="JBe-OF-kfW" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="rlN-rg-7hq">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rlN-rg-7hq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,11 +240,13 @@
             </objects>
             <point key="canvasLocation" x="1428" y="-500.59970014992507"/>
         </scene>
-        <!--List View-->
+        <!--List-->
         <scene sceneID="scv-AB-STH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4kt-c8-8Q7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List View" id="SRM-VJ-2bi"/>
+                    <tabBarItem key="tabBarItem" title="List" image="tableview" id="SRM-VJ-2bi">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJu-gb-v1e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -282,11 +284,11 @@
             </objects>
             <point key="canvasLocation" x="2353" y="-858"/>
         </scene>
-        <!--Grid View-->
+        <!--Grid-->
         <scene sceneID="BDq-YK-2f6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ii4-t6-DG0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grid View" id="TJb-vl-qh6"/>
+                    <tabBarItem key="tabBarItem" title="Grid" image="collectionview" id="TJb-vl-qh6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZFE-Kl-oVW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -304,6 +306,8 @@
     </scenes>
     <resources>
         <image name="DefaultImage" width="100" height="75"/>
+        <image name="collectionview" width="30" height="30"/>
+        <image name="tableview" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gry-Wh-QjD"/>
