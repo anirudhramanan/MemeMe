@@ -29,7 +29,7 @@ class MemeTextFieldDelegate : NSObject, UITextFieldDelegate{
     }
     
     func shiftScreenDown(_ notification:Notification){
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+        self.view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
