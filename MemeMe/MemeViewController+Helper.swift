@@ -20,6 +20,7 @@ extension MemeViewController {
     }
     
     func getMemeImage() -> UIImage {
+        //hide the toolbar and navigation bar before capturing image
         self.navigationController?.toolbar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
         
