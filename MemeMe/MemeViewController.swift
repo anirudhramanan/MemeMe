@@ -83,6 +83,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         imageView.image = image
+        imageView.contentMode = .scaleAspectFit
         dismiss(animated: true, completion: nil)
         checkEnableShareButton()
     }

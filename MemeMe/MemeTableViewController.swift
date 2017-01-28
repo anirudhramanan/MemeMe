@@ -14,7 +14,6 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     // MARK: - Table view data source
@@ -28,6 +27,10 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         reloadTableView()
+        //enable edit option only if we have memes in our list
+        if sentMemes.count > 0 {
+            navigationItem.leftBarButtonItem = editButtonItem
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,6 +46,7 @@ class MemeTableViewController: UITableViewController {
     
     func removeAndUpdateMemes(index: Int) {
         sentMemes.remove(at: index)
+        SentMemes.removeMeme(index: index)
     }
     
     @IBAction func unwindToList(sender: UIStoryboardSegue) {

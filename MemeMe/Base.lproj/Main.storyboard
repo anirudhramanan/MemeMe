@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-c8-dEB">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="13r-c8-dEB">
                                 <rect key="frame" x="16" y="0.0" width="343" height="559"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWB-Jd-TA3">
@@ -196,24 +196,23 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="Sam-wo-QL8" customClass="MemeCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4yi-eb-DvS">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="4yi-eb-DvS" firstAttribute="top" secondItem="Sam-wo-QL8" secondAttribute="top" id="FTb-Ip-MtC"/>
-                                    <constraint firstAttribute="bottom" secondItem="4yi-eb-DvS" secondAttribute="bottom" id="Txg-gn-xPS"/>
-                                    <constraint firstAttribute="trailing" secondItem="4yi-eb-DvS" secondAttribute="trailing" id="o7Y-pg-aEo"/>
-                                    <constraint firstItem="4yi-eb-DvS" firstAttribute="leading" secondItem="Sam-wo-QL8" secondAttribute="leading" id="ruF-Yd-t0E"/>
+                                    <constraint firstAttribute="trailing" secondItem="4yi-eb-DvS" secondAttribute="trailing" id="AbM-4N-zcs"/>
+                                    <constraint firstItem="4yi-eb-DvS" firstAttribute="top" secondItem="Sam-wo-QL8" secondAttribute="top" id="SmA-1p-Pw5"/>
+                                    <constraint firstAttribute="bottom" secondItem="4yi-eb-DvS" secondAttribute="bottom" id="YpC-3a-QI1"/>
+                                    <constraint firstItem="4yi-eb-DvS" firstAttribute="leading" secondItem="Sam-wo-QL8" secondAttribute="leading" id="fy5-OR-0CO"/>
                                 </constraints>
-                                <size key="customSize" width="150" height="150"/>
                                 <connections>
                                     <outlet property="memeImage" destination="4yi-eb-DvS" id="g9o-t5-Mb5"/>
                                 </connections>
@@ -303,6 +302,9 @@
             <point key="canvasLocation" x="489" y="-499"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DefaultImage" width="100" height="75"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gry-Wh-QjD"/>
     </inferredMetricsTieBreakers>
