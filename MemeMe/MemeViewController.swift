@@ -21,7 +21,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTextField()
+        setupTextFieldDelegate()
+        configureTextField(textField: topText, fontName: "HelveticaNeue-CondensedBlack")
+        configureTextField(textField: bottomText, fontName: "HelveticaNeue-CondensedBlack")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,20 +56,21 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let fontName = action.title ?? ""
         //make sure that the font has a title, else do not execute this block
         if fontName != "" {
-            self.topText.defaultTextAttributes = getMemeTextAttributes(fontName: fontName)
-            self.bottomText.defaultTextAttributes = getMemeTextAttributes(fontName: fontName)
+            configureTextField(textField: topText, fontName: fontName)
+            configureTextField(textField: bottomText, fontName: fontName)
         }
     }
     
-    private func setupTextField() {
+    private func setupTextFieldDelegate() {
         //first set the delegates for both text fields
         memeTextFieldDelegate.view = self.view
         self.topText.delegate = memeTextFieldDelegate
         self.bottomText.delegate = memeTextFieldDelegate
-        
-        //sent fonts
-        self.topText.defaultTextAttributes = getMemeTextAttributes(fontName: "HelveticaNeue-CondensedBlack")
-        self.bottomText.defaultTextAttributes = getMemeTextAttributes(fontName: "HelveticaNeue-CondensedBlack")
+    }
+    
+    private func configureTextField(textField: UITextField, fontName: String) {
+        textField.defaultTextAttributes = getMemeTextAttributes(fontName: fontName)
+        textField.textAlignment = NSTextAlignment.center
     }
     
     @IBAction func cancel(_ sender: Any) {
