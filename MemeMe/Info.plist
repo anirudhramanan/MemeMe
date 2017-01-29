@@ -43,5 +43,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Select the image for a meme</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Capture the image for the meme</string>
 </dict>
 </plist>
