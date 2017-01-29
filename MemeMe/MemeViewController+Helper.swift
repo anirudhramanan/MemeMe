@@ -22,8 +22,8 @@ extension MemeViewController {
     func setupTextFieldDelegate() {
         //first set the delegates for both text fields
         memeTextFieldDelegate.view = self.view
-        self.topText.delegate = memeTextFieldDelegate
-        self.bottomText.delegate = memeTextFieldDelegate
+        topText.delegate = memeTextFieldDelegate
+        bottomText.delegate = memeTextFieldDelegate
     }
     
     func loadSavedMeme(meme : Meme?) {
@@ -31,22 +31,27 @@ extension MemeViewController {
             topText.text = meme.topText
             bottomText.text = meme.bottomText
             imageView.image = meme.image
-            imageView.contentMode = .center
+            imageView.contentMode = .scaleAspectFit
+            enableShareButton()
         }
+    }
+    
+    func enableShareButton() {
+        shareButton.isEnabled = true
     }
     
     func getMemeImage() -> UIImage {
         
-        self.navigationController?.toolbar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.toolbar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memeImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        self.navigationController?.toolbar.isHidden = false
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.toolbar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
         
         return memeImage
     }
@@ -66,7 +71,7 @@ extension MemeViewController {
             break
         }
         
-        self.present(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func getFontsList() -> [String] {

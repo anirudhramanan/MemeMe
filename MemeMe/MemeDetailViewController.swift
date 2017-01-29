@@ -15,17 +15,21 @@ class MemeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI(hide: true)
         loadMeme()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         configureUI(hide: false)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureUI(hide: true)
+    }
+    
     private func configureUI(hide: Bool) {
-        self.tabBarController?.tabBar.isHidden = hide
+        tabBarController?.tabBar.isHidden = hide
     }
     
     private func loadMeme() {
