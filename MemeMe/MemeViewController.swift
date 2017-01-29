@@ -25,7 +25,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         setupTextFieldDelegate()
         configureTextField(textField: topText, fontName: "HelveticaNeue-CondensedBlack")
         configureTextField(textField: bottomText, fontName: "HelveticaNeue-CondensedBlack")
-        loadEditMeme(meme : self.meme)
+        loadSavedMeme(meme : self.meme)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -62,14 +62,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             configureTextField(textField: bottomText, fontName: fontName)
         }
     }
-    
-    private func setupTextFieldDelegate() {
-        //first set the delegates for both text fields
-        memeTextFieldDelegate.view = self.view
-        self.topText.delegate = memeTextFieldDelegate
-        self.bottomText.delegate = memeTextFieldDelegate
-    }
-    
+
     private func configureTextField(textField: UITextField, fontName: String) {
         textField.defaultTextAttributes = getMemeTextAttributes(fontName: fontName)
         textField.textAlignment = NSTextAlignment.center

@@ -16,22 +16,24 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureFlowLayout()
+    }
+    
+    private func configureFlowLayout() {
         let space: CGFloat = 3.0
         let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
-        
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       reloadCollectionView()
+       loadDataForCollectionView()
     }
     
     @IBAction func unwindToList(sender: UIStoryboardSegue) {
         if sender.source is MemeViewController {
-            reloadCollectionView()
+            loadDataForCollectionView()
         } else{
             fatalError("Unidentified segue")
         }
@@ -53,7 +55,7 @@ class MemeCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    func reloadCollectionView() {
+    func loadDataForCollectionView() {
         sentMemes = SentMemes.allSentMemes()
         collectionView?.reloadData()
     }

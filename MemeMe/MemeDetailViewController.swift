@@ -11,27 +11,17 @@ import UIKit
 class MemeDetailViewController: UIViewController {
 
     @IBOutlet weak var memeImage: UIImageView!
-    weak var editMeme: UIBarButtonItem!
     var meme: Meme?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMeme()
     }
     
-    func loadMeme() {
+    private func loadMeme() {
         if let meme = meme {
             memeImage.image = meme.memeImage
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func editSavedMeme(sender: UIBarButtonItem) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

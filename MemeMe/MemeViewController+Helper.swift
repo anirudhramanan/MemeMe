@@ -19,7 +19,14 @@ extension MemeViewController {
         performSegue(withIdentifier: "unwindToList", sender: self)
     }
     
-    func loadEditMeme(meme : Meme?) {
+    func setupTextFieldDelegate() {
+        //first set the delegates for both text fields
+        memeTextFieldDelegate.view = self.view
+        self.topText.delegate = memeTextFieldDelegate
+        self.bottomText.delegate = memeTextFieldDelegate
+    }
+    
+    func loadSavedMeme(meme : Meme?) {
         if let meme = meme {
             topText.text = meme.topText
             bottomText.text = meme.bottomText

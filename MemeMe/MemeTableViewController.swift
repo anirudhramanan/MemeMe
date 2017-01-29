@@ -11,11 +11,8 @@ import UIKit
 class MemeTableViewController: UITableViewController {
     
     var sentMemes: [Meme] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+    let textSeperator: String = "..."
+   
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -26,7 +23,7 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        reloadTableView()
+        loadDataForTableView()
         //enable edit option only if we have memes in our list
         if sentMemes.count > 0 {
             navigationItem.leftBarButtonItem = editButtonItem
@@ -37,10 +34,9 @@ class MemeTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell", for: indexPath) as? MemeTableViewCell else {
             fatalError("The cell is not an instance of MemeTableViewCell")
         }
-        
         let meme = sentMemes[indexPath.row]
         cell.memeImage.image = meme.memeImage
-        cell.memeLabel.text = meme.topText + meme.bottomText
+        cell.memeLabel.text = meme.topText + textSeperator + meme.bottomText
         return cell
     }
     
@@ -51,7 +47,7 @@ class MemeTableViewController: UITableViewController {
     
     @IBAction func unwindToList(sender: UIStoryboardSegue) {
         if sender.source is MemeViewController {
-            reloadTableView()
+            loadDataForTableView()
         } else{
             fatalError("Unidentified segue")
         }
@@ -87,7 +83,7 @@ class MemeTableViewController: UITableViewController {
         }
     }
     
-    func reloadTableView() {
+    func loadDataForTableView() {
         sentMemes = SentMemes.allSentMemes()
         tableView.reloadData()
     }

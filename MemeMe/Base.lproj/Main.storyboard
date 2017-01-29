@@ -278,7 +278,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="c22-KZ-FeN">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="yMa-43-ee6"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="FvX-TN-gXu">
                             <connections>
                                 <segue destination="KVU-kG-p0P" kind="show" identifier="EditMeme" id="xLa-fg-yuY"/>
