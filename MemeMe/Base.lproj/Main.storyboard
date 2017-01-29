@@ -225,6 +225,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="memeImage" destination="4yi-eb-DvS" id="g9o-t5-Mb5"/>
+                                    <segue destination="toQ-Tb-Mzc" kind="show" identifier="ShowMeme" id="McA-kb-xCE"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -235,6 +236,7 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Saved Memes" id="hHS-KZ-mQQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="PMo-vO-Iha"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LZI-31-osU">
                             <connections>
                                 <segue destination="KVU-kG-p0P" kind="presentation" id="Gry-Wh-QjD"/>
@@ -276,6 +278,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="c22-KZ-FeN">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="yMa-43-ee6"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="FvX-TN-gXu">
                             <connections>
                                 <segue destination="KVU-kG-p0P" kind="show" identifier="EditMeme" id="xLa-fg-yuY"/>
@@ -362,6 +365,7 @@
         <image name="tableview" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="McA-kb-xCE"/>
         <segue reference="xLa-fg-yuY"/>
     </inferredMetricsTieBreakers>
 </document>

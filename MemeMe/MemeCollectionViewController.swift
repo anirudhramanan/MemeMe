@@ -57,4 +57,26 @@ class MemeCollectionViewController: UICollectionViewController {
         sentMemes = SentMemes.allSentMemes()
         collectionView?.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? ""){
+        case "ShowMeme":
+            guard let memeDetailViewController = segue.destination as? MemeDetailViewController else{
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedMemeCell = sender as? MemeCollectionViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            guard let indexPath = collectionView?.indexPath(for: selectedMemeCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            let selectedMeme = sentMemes[indexPath.row]
+            memeDetailViewController.meme = selectedMeme
+            break
+        default:
+            break
+        }
+    }
 }
