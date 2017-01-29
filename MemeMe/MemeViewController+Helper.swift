@@ -19,6 +19,15 @@ extension MemeViewController {
         performSegue(withIdentifier: "unwindToList", sender: self)
     }
     
+    func loadEditMeme(meme : Meme?) {
+        if let meme = meme {
+            topText.text = meme.topText
+            bottomText.text = meme.bottomText
+            imageView.image = meme.image
+            imageView.contentMode = .center
+        }
+    }
+    
     func getMemeImage() -> UIImage {
         
         self.navigationController?.toolbar.isHidden = true

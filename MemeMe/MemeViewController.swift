@@ -18,14 +18,16 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let memeTextFieldDelegate = MemeTextFieldDelegate()
     var memeImage: UIImage!
+    var meme : Meme?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFieldDelegate()
         configureTextField(textField: topText, fontName: "HelveticaNeue-CondensedBlack")
         configureTextField(textField: bottomText, fontName: "HelveticaNeue-CondensedBlack")
+        loadEditMeme(meme : self.meme)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         self.memeTextFieldDelegate.subscribeToKeyboardNotifications()
